@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"sync"
 	"sync/atomic"
+	"time"
 )
 
 // 单例模式优缺点
@@ -37,6 +38,7 @@ func GetLoadInstance1() *SingleLoad {
 			singleLoadIns = &SingleLoad{
 				name: "singleton",
 			}
+			time.Sleep(3 * time.Second)
 		}
 	}
 	return singleLoadIns
@@ -54,6 +56,7 @@ func GetLoadInstance2() *SingleLoad {
 			singleLoadIns = &SingleLoad{
 				name: "singleton",
 			}
+			time.Sleep(3 * time.Second)
 		}
 	}
 	return singleLoadIns
@@ -72,6 +75,7 @@ func GetLoadInstance3() *SingleLoad {
 		singleLoadIns = &SingleLoad{
 			name: "singleton",
 		}
+		time.Sleep(3 * time.Second)
 		atomic.StoreUint32(&initialized, 1)
 	}
 	return singleLoadIns
@@ -84,6 +88,7 @@ func GetLoadInstance4() *SingleLoad {
 			singleLoadIns = &SingleLoad{
 				name: "singleton",
 			}
+			time.Sleep(3 * time.Second)
 		})
 	}
 	return singleLoadIns
